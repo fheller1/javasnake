@@ -27,10 +27,10 @@ public class UiMain {
 		JButton right = new JButton(">");
 		
 		start.addActionListener(new StartButtonListener(frame, imgLabel, sizeSlider, gb));
-		up.addActionListener(new ControlButtonListener(frame, imgLabel, sizeSlider, gb, 0));
-		left.addActionListener(new ControlButtonListener(frame, imgLabel, sizeSlider, gb, 3));
-		down.addActionListener(new ControlButtonListener(frame, imgLabel, sizeSlider, gb, 2));
-		right.addActionListener(new ControlButtonListener(frame, imgLabel, sizeSlider, gb, 1));
+		up.addActionListener(new ControlButtonListener(gb, 0));
+		left.addActionListener(new ControlButtonListener(gb, 3));
+		down.addActionListener(new ControlButtonListener(gb, 2));
+		right.addActionListener(new ControlButtonListener(gb, 1));
 		
 		frame.setSize(new Dimension(550, 620));
 		

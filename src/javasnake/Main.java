@@ -15,7 +15,8 @@ public class Main {
 		while (!board.getEnd()) {
 			System.out.println("Next direction, 0 up, 1 right, 2 down, 3 left");
 			userInput = input.nextInt();
-			things = board.tick(userInput);
+			board.setCurrentDirection(userInput);
+			things = board.tick();
 			for(int y=size-1; y>-1; y--) {
 				for(int x=0; x<size; x++) {
 					boolean printed = false;

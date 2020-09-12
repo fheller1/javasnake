@@ -28,7 +28,7 @@ public class StartButtonListener implements ActionListener {
 		size = sizeSlider.getValue();
 		
 		ImageIcon img = new ImageIcon();
-		img.setImage(gb[0].generate(0, size, frame.getWidth()-50, frame.getHeight()-120));
+		img.setImage(gb[0].generate(0, frame.getWidth()-50, frame.getHeight()-120));
 		imgLabel.setIcon(img);
 		frame.repaint();
 		
@@ -37,7 +37,7 @@ public class StartButtonListener implements ActionListener {
 		size = sizeSlider.getValue();
 		
 		img = new ImageIcon();
-		img.setImage(gb[0].generate(0, size, frame.getWidth()-50, frame.getHeight()-120));
+		img.setImage(gb[0].generate(0, frame.getWidth()-50, frame.getHeight()-120));
 		imgLabel.setIcon(img);
 		frame.repaint();
 	}

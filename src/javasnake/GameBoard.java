@@ -14,6 +14,8 @@ public class GameBoard {
 	private int size;
 	private boolean end;
 	
+	private int currentDirection;
+	
 	private ArrayList<Fruit> fruits;
 	private ArrayList<Wall> walls;
 	private ArrayList<SnakePiece> pieces;
@@ -34,6 +36,7 @@ public class GameBoard {
 	public GameBoard(int size) {
 		this.size = size;
 		end = false;
+		currentDirection = 1;
 		
 		walls = new ArrayList<Wall>();
 		pieces = new ArrayList<SnakePiece>();
@@ -57,8 +60,8 @@ public class GameBoard {
 		fruitSpawn();
 	}
 	
-	public BufferedImage generate(int userInput, int size, int width, int height) {
-		ArrayList<GameObject> things = tick(userInput);
+	public BufferedImage generate(int size, int width, int height) {
+		ArrayList<GameObject> things = tick();
 		I = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		
 		for (int x = 0; x < width; ++x) {
@@ -79,11 +82,11 @@ public class GameBoard {
 		return I;
 	}
 	
-	public ArrayList<GameObject> tick(int userInput) {
+	public ArrayList<GameObject> tick() {
 		if(end) return things;
 		Coordinate nextHead;
 		GameObject next;
-		switch(userInput) {
+		switch(currentDirection) {
 		case 0: //snake goes up
 			nextHead = new Coordinate(head.getCoordinate().getX(), head.getCoordinate().getY()+1);
 			next = null;
@@ -221,5 +224,13 @@ public class GameBoard {
 	
 	public boolean getEnd() {
 		return end;
+	}
+
+	public int getCurrentDirection() {
+		return currentDirection;
+	}
+
+	public void setCurrentDirection(int currentDirection) {
+		this.currentDirection = currentDirection;
 	}
 }

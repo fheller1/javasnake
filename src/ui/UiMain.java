@@ -2,6 +2,7 @@ package ui;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractAction;
@@ -13,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.KeyStroke;
+import javax.swing.Timer;
 
 import javasnake.*;
 
@@ -67,7 +69,6 @@ public class UiMain {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(gb[0] != null) gb[0].setCurrentDirection(0);
-                step.doClick();
             }
         });
         panel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_A, 0), "left");
@@ -75,7 +76,6 @@ public class UiMain {
             @Override
             public void actionPerformed(ActionEvent e) {
             	if(gb[0] != null) gb[0].setCurrentDirection(3);
-                step.doClick();
             }
         });
         panel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_S, 0), "backward");
@@ -83,7 +83,6 @@ public class UiMain {
             @Override
             public void actionPerformed(ActionEvent e) {
             	if(gb[0] != null) gb[0].setCurrentDirection(2);
-                step.doClick();
             }
         });
         panel.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_D, 0), "right");
@@ -91,9 +90,17 @@ public class UiMain {
             @Override
             public void actionPerformed(ActionEvent e) {
             	if(gb[0] != null) gb[0].setCurrentDirection(1);
-                step.doClick();
             }
         });
+        
+        Timer timer = new Timer(500, new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+				if(step.isEnabled()) step.doClick();
+			}
+        	
+        });
+        timer.setRepeats(true);
+        timer.start();
 		
 		frame.add(panel);
 		

@@ -47,7 +47,7 @@ public class UiMain {
 		down.addActionListener(new ControlButtonListener(gb, 2));
 		right.addActionListener(new ControlButtonListener(gb, 1));
 		
-		frame.setSize(new Dimension(550, 620));
+		frame.setSize(new Dimension(550, 590));
 		
 		JPanel panel = new JPanel();
 		

@@ -30,7 +30,7 @@ public class StepButtonListener implements ActionListener {
 		if(gb[0].getEnd()) return;
 		
 		ImageIcon img = new ImageIcon();
-		img.setImage(gb[0].generate(frame.getWidth()-50, frame.getHeight()-120));
+		img.setImage(gb[0].generate(500, 500));
 		
 		if(gb[0].getEnd()) {
 			img = new ImageIcon("img/end.jpg"); 

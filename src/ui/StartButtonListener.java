@@ -2,6 +2,8 @@ package ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.TimeUnit;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,20 +26,12 @@ public class StartButtonListener implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
-		gb[0] = new GameBoard(size);
 		size = sizeSlider.getValue();
+		gb[0] = new GameBoard(size);
+		size = sizeSlider.getValue();		
 		
 		ImageIcon img = new ImageIcon();
-		img.setImage(gb[0].generate(0, frame.getWidth()-50, frame.getHeight()-120));
-		imgLabel.setIcon(img);
-		frame.repaint();
-		
-		
-		gb[0] = new GameBoard(size);
-		size = sizeSlider.getValue();
-		
-		img = new ImageIcon();
-		img.setImage(gb[0].generate(0, frame.getWidth()-50, frame.getHeight()-120));
+		img.setImage(gb[0].generate(frame.getWidth()-50, frame.getHeight()-120));
 		imgLabel.setIcon(img);
 		frame.repaint();
 	}

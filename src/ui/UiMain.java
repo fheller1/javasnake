@@ -1,8 +1,10 @@
 package ui;
 
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -37,6 +39,9 @@ public class UiMain {
 		frame.setSize(new Dimension(550, 620));
 		
 		JPanel panel = new JPanel();
+		
+		ImageIcon img = new ImageIcon("img/title.jpg");
+		imgLabel.setIcon(img);
 
 		panel.add(sizeSlider);
 		panel.add(start);
@@ -47,15 +52,10 @@ public class UiMain {
 		panel.add(down);
 		panel.add(right);
 		sizeSlider.setEnabled(false);
-				
+		
 		frame.add(panel);
 		
-		ImageIcon img = new ImageIcon();
-		img.setImage(new BufferedImage(500, 500, BufferedImage.TYPE_INT_RGB));
-		imgLabel.setIcon(img);
-		
 		frame.setVisible(true);
-		
 		
 	}
 	

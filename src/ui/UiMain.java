@@ -21,12 +21,14 @@ public class UiMain {
 		JSlider sizeSlider = new JSlider(7, 35, 10);
 		GameBoard[] gb = new GameBoard[1];
 		JButton start = new JButton("Start!");
+		JButton step = new JButton("Step");
 		JButton up = new JButton("^");
 		JButton left = new JButton("<");
 		JButton down = new JButton("_");
 		JButton right = new JButton(">");
 		
 		start.addActionListener(new StartButtonListener(frame, imgLabel, sizeSlider, gb));
+		step.addActionListener(new StepButtonListener(frame, imgLabel, gb));
 		up.addActionListener(new ControlButtonListener(gb, 0));
 		left.addActionListener(new ControlButtonListener(gb, 3));
 		down.addActionListener(new ControlButtonListener(gb, 2));
@@ -38,7 +40,7 @@ public class UiMain {
 
 		panel.add(sizeSlider);
 		panel.add(start);
-		//panel.addKeyListener(new SnakeKeyListener(frame, imgLabel, sizeSlider, gb));
+		panel.add(step);
 		panel.add(imgLabel);
 		panel.add(up);
 		panel.add(left);

@@ -2,7 +2,6 @@ package ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -29,6 +28,7 @@ public class StartButtonListener implements ActionListener {
 		size = sizeSlider.getValue();
 		gb[0] = new GameBoard(size);
 		size = sizeSlider.getValue();		
+		sizeSlider.setEnabled(false);
 		
 		ImageIcon img = new ImageIcon();
 		img.setImage(gb[0].generate(frame.getWidth()-50, frame.getHeight()-120));

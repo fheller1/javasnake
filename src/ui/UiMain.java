@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
+import javax.swing.KeyStroke;
+
 import javasnake.*;
 
 
@@ -49,6 +51,16 @@ public class UiMain {
 		panel.add(down);
 		panel.add(right);
 		sizeSlider.setEnabled(false);
+		
+		step.getInputMap().put(KeyStroke.getKeyStroke('W'), "upKey");
+		step.getInputMap().put(KeyStroke.getKeyStroke('A'), "leftKey");
+		imgLabel.getInputMap().put(KeyStroke.getKeyStroke('S'), "downKey");
+		imgLabel.getInputMap().put(KeyStroke.getKeyStroke('D'), "rightKey");
+		
+		step.getActionMap().put("upKey", new ControlKeyAction(gb, 0));
+		step.getActionMap().put("leftKey", new ControlKeyAction(gb, 3));
+		imgLabel.getActionMap().put("downKey", new ControlKeyAction(gb, 2));
+		imgLabel.getActionMap().put("rightKey", new ControlKeyAction(gb, 1));
 		
 		frame.add(panel);
 		

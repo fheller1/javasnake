@@ -1,10 +1,6 @@
 package ui;
 
 import java.awt.Dimension;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -29,8 +25,9 @@ public class UiMain {
 		JButton down = new JButton("_");
 		JButton right = new JButton(">");
 		
-		start.addActionListener(new StartButtonListener(frame, imgLabel, sizeSlider, gb));
-		step.addActionListener(new StepButtonListener(frame, imgLabel, gb));
+		start.addActionListener(new StartButtonListener(frame, imgLabel, sizeSlider, step, start, gb));
+		step.addActionListener(new StepButtonListener(frame, imgLabel, step, start, gb));
+		step.setEnabled(false);
 		up.addActionListener(new ControlButtonListener(gb, 0));
 		left.addActionListener(new ControlButtonListener(gb, 3));
 		down.addActionListener(new ControlButtonListener(gb, 2));

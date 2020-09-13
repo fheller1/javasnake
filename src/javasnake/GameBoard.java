@@ -36,7 +36,7 @@ public class GameBoard {
 	public GameBoard(int size) {
 		this.size = size;
 		end = false;
-		currentDirection = 1;
+		currentDirection = 0;
 		
 		walls = new ArrayList<Wall>();
 		pieces = new ArrayList<SnakePiece>();
@@ -60,7 +60,7 @@ public class GameBoard {
 		fruitSpawn();
 	}
 	
-	public BufferedImage generate(int size, int width, int height) {
+	public BufferedImage generate(int width, int height) {
 		ArrayList<GameObject> things = tick();
 		I = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		
@@ -69,7 +69,7 @@ public class GameBoard {
 				int realY = height-y;
 				GameObject currentGameObject = null;
 				Color currentColor;
-				for(GameObject o:things) if(o.getCoordinate().getX() == x/(width/size) && o.getCoordinate().getY() == realY/(height/size)) currentGameObject = o;
+				for(GameObject o:things) if(o.getCoordinate().getX() == x/(width/this.size) && o.getCoordinate().getY() == realY/(height/this.size)) currentGameObject = o;
 				if(currentGameObject == null) currentColor = airColor;
 				else if(currentGameObject.getSign() == fruitChar) currentColor = fruitColor;
 				else if(currentGameObject.getSign() == wallChar) currentColor = wallColor;
